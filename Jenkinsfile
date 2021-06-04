@@ -26,7 +26,11 @@ pipeline {
                         }
 
                     } finally {
-
+                        echo "Trying to Push Docker Build to DockerHub"
+                        // push image
+                        docker.withRegistry('https://registry.hub.docker.com', 'b5a58bfa-3753-4818-a8cc-e4be44d06a7a') {
+                            app.push("$registry:$BUILD_NUMBER")
+                        } 
                         
                         // Removing the docker image
                         sh "docker rmi $registry:$BUILD_NUMBER"
