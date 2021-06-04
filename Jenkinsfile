@@ -34,8 +34,10 @@ pipeline {
                         } 
                         
                         // Removing the docker image
-                        echo "Removing image" + "$registry"
-                        sh "docker rmi $registry"
+                        echo "Removing image" + "registry.hub.docker.com/$registry:$BUILD_NUMBER"
+                        sh "docker rmi registry.hub.docker.com/$registry:$BUILD_NUMBER"
+                        echo "Removing image" + "registry.hub.docker.com/$registry:latest"
+                        sh "docker rmi registry.hub.docker.com/$registry:latest"
                     }
                 }
             }
