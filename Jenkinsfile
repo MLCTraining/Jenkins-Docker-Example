@@ -5,7 +5,7 @@ pipeline {
     }
     agent any
     stages {
-        stage("Test") {
+        stage("Build, Test and push to registry") {
             steps {
                 script {
                     // Building the Docker image
