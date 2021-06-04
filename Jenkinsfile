@@ -34,7 +34,7 @@ pipeline {
                         } 
                         
                         // Removing the docker image
-                        sh "IMAGE_ID=\$5(docker images --filter='reference=slord0001/jenkins-docker-example' --quiet)"
+                        sh "IMAGE_ID=\$(docker images --filter='reference=slord0001/jenkins-docker-example' --quiet)"
                         echo "$IMAGE_ID"
                     }
                 }
