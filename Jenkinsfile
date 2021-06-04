@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     // Building the Docker image
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build("$registry")
 
                     try {
                         dockerImage.inside() {
@@ -33,8 +33,8 @@ pipeline {
                         } 
                         
                         // Removing the docker image
-                        echo "Removing image" + "${env.BUILD_NUMBER}"
-                        sh "docker rmi ${env.BUILD_NUMBER}"
+                        echo "Removing image" + "$registry"
+                        sh "docker rmi $registry"
                     }
                 }
             }
