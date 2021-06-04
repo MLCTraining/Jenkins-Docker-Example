@@ -30,10 +30,11 @@ pipeline {
                         echo "Trying to Push Docker Build to DockerHub"
                         docker.withRegistry('https://registry.hub.docker.com', 'b5a58bfa-3753-4818-a8cc-e4be44d06a7a') {
                             dockerImage.push("${env.BUILD_NUMBER}")
+                            dockerImage.push("latest")
                         } 
                         
                         // Removing the docker image
-
+                        echo "${env.IMAGE_ID}"
                     }
                 }
             }
