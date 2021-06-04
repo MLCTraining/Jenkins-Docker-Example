@@ -1,7 +1,7 @@
 pipeline {
     environment {
         // This registry is important for removing the image after the tests
-        registry = "yourname/nodeapp"
+        registry = "slord0001/jenkins-docker-example"
     }
     agent any
     stages {
