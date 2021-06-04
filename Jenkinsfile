@@ -38,7 +38,7 @@ pipeline {
                             IMAGE_ID=\$(docker images --filter='reference=slord0001/jenkins-docker-example' --quiet)
                             echo "Removing Docker Images: \$IMAGE_ID"
                             docker rmi \$IMAGE_ID -f
-                            sudo rm -r Jenkins-Docker-Example
+                            rm -r /var/lib/jenkins/workspace/Jenkins-Docker-Example
                         """
                     }
                 }
