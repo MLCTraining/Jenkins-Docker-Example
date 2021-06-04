@@ -33,8 +33,8 @@ pipeline {
                         } 
                         
                         // Removing the docker image
-                        echo "Removing image" + "$registry:$BUILD_NUMBER"
-                        sh "docker rmi $registry:$BUILD_NUMBER"
+                        echo "Removing image" + "${env.BUILD_NUMBER}"
+                        sh "docker rmi ${env.BUILD_NUMBER}"
                     }
                 }
             }
