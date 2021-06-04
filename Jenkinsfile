@@ -34,11 +34,9 @@ pipeline {
                         } 
                         
                         // Removing the docker image
-                        environment { 
-                            IMAGE_ID= sh "(docker images --filter='reference=slord0001/jenkins-docker-example' --quiet)"
-                        }
-                        echo "Removing Docker Images: ${env.IMAGE_ID}"
-                        sh "docker rmi ${env.IMAGE_ID} -f"
+                        IMAGE_ID="""$(docker images --filter='reference=slord0001/jenkins-docker-example' --quiet)"""
+                        echo "Removing Docker Images: ${IMAGE_ID}"
+                        sh "docker rmi ${IMAGE_ID} -f"
                     }
                 }
             }
