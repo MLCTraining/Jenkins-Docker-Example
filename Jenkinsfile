@@ -26,7 +26,7 @@ pipeline {
                         }
 
                     } finally {
-                        echo "$registry:$BUILD_NUMBER"
+                        echo $registry:$BUILD_NUMBER
                         // Removing the docker image
                         sh "docker rmi $registry:$BUILD_NUMBER"
                     }
