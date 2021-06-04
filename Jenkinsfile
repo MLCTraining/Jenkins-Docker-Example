@@ -34,7 +34,8 @@ pipeline {
                         } 
                         
                         // Removing the docker image
-                        echo "${env.IMAGE_ID}"
+                        sh 'IMAGE_ID=$(docker images --filter=reference=image_name --format "{{.ID}}")'
+                        echo "$IMAGE_ID"
                     }
                 }
             }
