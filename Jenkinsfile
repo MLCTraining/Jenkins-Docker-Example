@@ -35,7 +35,7 @@ pipeline {
                         
                         // Removing the docker image
                         sh """
-                            IMAGE_ID=\$(docker images --filter=\$registry --quiet)
+                            IMAGE_ID=\$(docker images --filter='reference=\$registry' --quiet)
                             echo "Removing Docker Images: \$IMAGE_ID"
                             docker rmi \$IMAGE_ID -f
                         """
